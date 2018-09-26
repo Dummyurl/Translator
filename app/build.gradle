@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+    defaultConfig {
+        applicationId "english.spanish.translate"
+        minSdkVersion 17
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+        preDexLibraries = false
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.squareup.retrofit:retrofit:2.0.0-beta2'
+    implementation 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
+    implementation 'com.squareup.retrofit:converter-jackson:2.0.0-beta2'
+    implementation 'com.google.firebase:firebase-crash:16.0.1'
+    implementation 'com.firebase:firebase-client-android:2.5.2'
+    implementation 'com.google.firebase:firebase-core:16.0.1'
+    implementation 'com.google.firebase:firebase-messaging:17.1.0'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.github.markushi:circlebutton:1.1'
+    implementation 'com.google.android.gms:play-services-analytics:16.0.1'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.google.android.gms:play-services-ads:15.0.1'
+
+
+    implementation 'co.ronash.android:pushe-base:1.4.0'
+    implementation 'com.google.android.gms:play-services-gcm:15.0.1'
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
+}
